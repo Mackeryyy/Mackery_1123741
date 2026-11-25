@@ -1,0 +1,21 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+anomaly_env/
+venv/
+
+# Dataset
+datasets/
+
+# Temporary files
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+
+# Temporary files
+*.tmp

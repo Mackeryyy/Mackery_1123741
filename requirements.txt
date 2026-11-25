@@ -1,0 +1,11 @@
+anomalib==2.7.1
+streamlit==1.67.0
+numpy
+pandas
+matplotlib
+Pillow
+scikit-learn
+scipy
+seaborn
+reportlab
+opencv-python
