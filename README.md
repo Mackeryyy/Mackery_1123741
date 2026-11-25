@@ -133,7 +133,7 @@ The dataset contains normal bottle images for training and both normal and defec
       <br><b>Good</b>
     </td>
     <td align="center">
-      <img src="contamination.png" width="150" alt="Contamination">
+      <img src="contamination_1.png" width="150" alt="Contamination">
       <br><b>Contamination</b>
     </td>
     <td align="center">
@@ -141,7 +141,7 @@ The dataset contains normal bottle images for training and both normal and defec
       <br><b>Broken Small</b>
     </td>
     <td align="center">
-      <img src="broken_large.png" width="150" alt="Broken large">
+      <img src="broken_large_1.png" width="150" alt="Broken large">
       <br><b>Broken Large</b>
     </td>
   </tr>
