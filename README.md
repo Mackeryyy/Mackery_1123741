@@ -242,88 +242,118 @@ Press `Ctrl + C` in the terminal to stop the application.
 
 ---
 
-## 6. Web Application
+## 6. Experimental Results and Application Demonstration
 
-The Streamlit application provides an interactive interface with five main pages:
+The PatchCore model was evaluated using the MVTec AD Bottle dataset. The Streamlit application provides an interactive interface for image inspection, anomaly visualization, inspection history, and model evaluation.
 
-| Page | Function |
-|---|---|
-| Overview | Project introduction and system information |
-| Image Inspection | Upload images and visualize anomaly detection |
-| Inspection History | Review previous inspection records |
-| Model Evaluation | View model evaluation metrics |
-| Training Data Experiment | Compare performance using different training sizes |
+### 6.1 Image Inspection
 
-### Image Inspection Example
+Users can upload multiple bottle images and view the original images, anomaly maps, heatmaps, predicted defect masks, and final detection results.
 
-Users can upload bottle images and view:
+<p align="center">
+  <img src="screenshots/image_inspection.png" width="90%" alt="Image inspection interface"/>
+</p>
 
-- Original image
-- Anomaly map and heatmap
-- Predicted defect mask
-- Final detection result with defect localization
+<p align="center">
+  <img src="screenshots/inspection_results.png" width="90%" alt="Inspection results summary"/>
+</p>
 
-![Image Inspection](screenshots/image_inspection.png)
+### 6.2 Individual Inspection Examples
 
-*Additional screenshots can be found in the `screenshots/` directory.*
+The following examples demonstrate the detection results for defective and normal bottle images.
 
----
+<details>
+<summary><b>View four inspection examples and generated PDF reports</b></summary>
 
-## 7. Experimental Results
+**Test 1**
 
-The PatchCore model was evaluated using 83 test images from the MVTec AD Bottle dataset.
+<img src="screenshots/test_1.png" width="100%" alt="Test 1 inspection"/>
+<img src="screenshots/test_1_report.png" width="100%" alt="Test 1 PDF report"/>
 
-### Image-Level Classification
+**Test 2**
 
-| Metric | Custom Evaluation |
+<img src="screenshots/test_2.png" width="100%" alt="Test 2 inspection"/>
+<img src="screenshots/test_2_report.png" width="100%" alt="Test 2 PDF report"/>
+
+**Test 3**
+
+<img src="screenshots/test_3.png" width="100%" alt="Test 3 inspection"/>
+<img src="screenshots/test_3_report.png" width="100%" alt="Test 3 PDF report"/>
+
+**Test 4**
+
+<img src="screenshots/test_4.png" width="100%" alt="Test 4 inspection"/>
+<img src="screenshots/test_4_report.png" width="100%" alt="Test 4 PDF report"/>
+
+</details>
+
+### 6.3 Inspection History and Dashboard
+
+The application records previous inspections and displays inspection statistics, product classifications, and recent activity.
+
+<p align="center">
+  <img src="screenshots/inspection_history.png" width="90%" alt="Inspection history"/>
+</p>
+
+<p align="center">
+  <img src="screenshots/inspection_distribution.png" width="90%" alt="Inspection distribution"/>
+</p>
+
+<p align="center">
+  <img src="screenshots/recen_inspection_activity.png" width="90%" alt="Recent inspection activity"/>
+</p>
+
+### 6.4 Model Evaluation
+
+The custom evaluation correctly classified all 83 test images.
+
+| Metric | Result |
 |---|---:|
 | Accuracy | 100% |
 | Precision | 100% |
 | Recall | 100% |
 | F1-Score | 100% |
-| Correct Predictions | 83 / 83 |
+| Pixel AUROC | 0.9855 |
+| Pixel F1-Score | 0.7259 |
 
-### Anomalib Evaluation
+<p align="center">
+  <img src="screenshots/Confusion Matrix.png" width="75%" alt="Confusion matrix"/>
+</p>
 
-| Metric | Result |
-|---|---:|
-| Image AUROC | 1.0000 |
-| Image F1-Score | 0.9920 |
-| Pixel AUROC | 0.9856 |
-| Pixel F1-Score | 0.7274 |
+<p align="center">
+  <img src="screenshots/pixel_level_evaluation.png" width="90%" alt="Pixel-level evaluation"/>
+</p>
 
-### Custom Pixel-Level Evaluation
+### 6.5 Training Data Size Experiment
 
-| Defect Category | Pixel AUROC | Pixel F1-Score |
-|---|---:|---:|
-| Broken Large | 0.9829 | 0.7728 |
-| Broken Small | 0.9942 | 0.7373 |
-| Contamination | 0.9725 | 0.6416 |
-| **Overall** | **0.9855** | **0.7259** |
-
-*Note: Anomalib and custom evaluation metrics are obtained using different evaluation pipelines and are reported separately.*
-
-### Training Data Size Experiment
-
-The experiment compares four independently trained models using different amounts of normal training data.
+Four independent models were evaluated using different amounts of normal training data.
 
 | Training Data | Images | Image AUROC | Pixel AUROC |
 |---|---:|---:|---:|
-| 25% | 52 | 1.0000 | 0.9855 |
-| 50% | 104 | 1.0000 | 0.9856 |
-| 75% | 157 | 1.0000 | 0.9854 |
-| 100% | 209 | 1.0000 | 0.9855 |
+| 25% | 52 | 1.0000 | 0.985515 |
+| 50% | 104 | 1.0000 | 0.985555 |
+| 75% | 157 | 1.0000 | 0.985447 |
+| 100% | 209 | 1.0000 | 0.985450 |
 
-The results show that performance remained similar across the four training sizes. The 50% experiment had a slightly higher pixel AUROC, but the difference was very small.
+<p align="center">
+  <img src="screenshots/image_level_detection_performance.png" width="90%" alt="Image-level performance"/>
+</p>
 
-### Additional Experiments
+<p align="center">
+  <img src="screenshots/numerical results.png" width="90%" alt="Training-size numerical results"/>
+</p>
 
-- **Threshold Analysis:** An exploratory threshold of 0.5774 produced an F1-score of approximately 0.6971. The threshold was selected using test data, so this result is not an unbiased final performance estimate.
-- **Smoothing Analysis:** Gaussian smoothing did not improve anomaly localization in this experiment.
+<p align="center">
+  <img src="screenshots/pixel_level_localization_performance.png" width="90%" alt="Pixel-level localization performance"/>
+</p>
+
+The results show similar performance across all four training sizes. The 50% experiment achieved a slightly higher pixel AUROC, but the difference was very small.
+
+*Note: Custom evaluation and Anomalib evaluation metrics are obtained using different evaluation pipelines.*
 
 ---
 
-## 8. Conclusion and Limitations
+## 7. Conclusion and Limitations
 
 The project demonstrated that PatchCore can effectively identify abnormal bottle images in the selected MVTec AD test set.
 
@@ -346,7 +376,7 @@ The custom evaluation achieved 100% image-level classification accuracy, while p
 
 ---
 
-## 9. References and Acknowledgement
+## 8. References and Acknowledgement
 
 ### References
 
