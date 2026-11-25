@@ -60,33 +60,14 @@ A web application developed using **Streamlit** allows users to upload bottle im
 
 ---
 
-## 📂 Dataset
 
-This project uses the **MVTec Anomaly Detection (MVTec AD)** dataset, specifically the **Bottle** category.
-
-The dataset contains normal bottle images for training and both normal and defective bottle images for testing.
-
-### Dataset Categories
-
-| Category | Number of Images | Purpose |
-|---|---:|---|
-| Good (Training) | 209 | Normal training images |
-| Good (Testing) | 20 | Normal test images |
-| Broken Large | 20 | Defect testing |
-| Broken Small | 22 | Defect testing |
-| Contamination | 21 | Defect testing |
-| **Total Test Images** | **83** | **Model evaluation** |
-
----
-
-## 📂 Dataset
+## Dataset
 
 This project uses the **MVTec Anomaly Detection (MVTec AD)** dataset, focusing on the **Bottle** category.
 
 The dataset contains normal bottle images for training and both normal and defective images for testing.
 
-### 📊 Dataset Summary<img width="900" height="900" alt="001" src="https://github.com/user-attachments/assets/4e25fc13-d2a0-4134-afd6-21f8b9abaa08" />
-
+### Dataset Summary
 
 <table align="center">
   <tr>
@@ -143,40 +124,28 @@ The dataset contains normal bottle images for training and both normal and defec
 
 ### 🖼️ Dataset Samples
 
-Add your own sample images to the `screenshots/dataset/` folder.
-<img width="900" height="900" alt="001" src="https://github.com/user-attachments/assets/48d5e35e-d7f1-457f-adbf-259bdfe4c0bd" />
+<h3 align="center">Dataset Samples</h3>
 
-<p align="center">
-  <img src="screenshots/dataset/![Uploading 000.png…]()
-good.png" width="180" alt="Normal bottle">
-  <img src="screenshots/dataset/broken_large.png" width="180" alt="Large broken bottle">
-  <img src="screenshots/dataset/broken_small.png" width="180" alt="Small broken bottle">
-  <img src="screenshots/dataset/contamination.png" width="180" alt="Contaminated bottle">
-</p>
-
-<p align="center">
-  <sub>Normal | Broken Large | Broken Small | Contamination</sub>
-</p>
-
-### 📁 Dataset Structure
-
-```text
-MVTecAD/
-└── bottle/
-    ├── train/
-    │   └── good/             # 209 normal images
-    │
-    ├── test/
-    │   ├── good/             # 20 images
-    │   ├── broken_large/     # 20 images
-    │   ├── broken_small/     # 22 images
-    │   └── contamination/    # 21 images
-    │
-    └── ground_truth/
-        ├── broken_large/
-        ├── broken_small/
-        └── contamination/
-```
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="good.png" width="150" alt="Normal bottle">
+      <br><b>Good</b>
+    </td>
+    <td align="center">
+      <img src="contamination.png" width="150" alt="Contamination">
+      <br><b>Contamination</b>
+    </td>
+    <td align="center">
+      <img src="broken_small.png" width="150" alt="Broken small">
+      <br><b>Broken Small</b>
+    </td>
+    <td align="center">
+      <img src="broken_large.png" width="150" alt="Broken large">
+      <br><b>Broken Large</b>
+    </td>
+  </tr>
+</table>
 
 ### 🔗 Dataset Source
 
